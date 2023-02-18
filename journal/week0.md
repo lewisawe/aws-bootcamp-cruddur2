@@ -33,4 +33,9 @@ The Approved email:
 ![Service Approval](assets/service-approval.png)
 
 ### 5. Working with gitpod
-
+"""
+aws budgets create-budget \
+    --account-id 939741999521 \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget_notification.json
+"""
