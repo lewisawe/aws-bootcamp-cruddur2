@@ -1,6 +1,7 @@
 # Week 0 — Billing and Architecture
 
 ## Destroy your root account credentials, Set MFA, IAM role
+![Added MFA to root and User Account](assets/MFA.png)
 
 ## Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
