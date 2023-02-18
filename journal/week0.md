@@ -15,8 +15,15 @@ The next step was setting up the gitpod account, using the AWS configure, then s
 ### Create an architectural diagram 
 Using Lucid Charts I created this 2 diagrams, a conceptual diagram and Architectural Diagram
 
+[The Conceptual diagram](https://lucid.app/lucidchart/fc6a6c35-2fda-4d9c-9bfa-8fd54a4667a8/edit?viewport_loc=-736%2C-148%2C2220%2C970%2C0_0&invitationId=inv_ff3a1391-e017-413c-bf7c-1712f973fc45)
+
+
+[The Architectural Diagram](https://lucid.app/lucidchart/9ca79677-eaca-42f1-b7b4-8de21fa475cc/edit?viewport_loc=84%2C356%2C2220%2C970%2C0_0&invitationId=inv_94040091-7a0c-4fea-b245-3df287b2ad6b)
 
 ### Open a support ticket and request a service limit
 Requested and got an approval of a service increase request of vCPUs
+The Request email:
 ![Added MFA to root and User Account](assets/Service-increase.png)
-![Added MFA to root and User Account](assets/Service-approval.png)
+
+The Approved email:
+![Added MFA to root and User Account](assets/service-approval.png)
