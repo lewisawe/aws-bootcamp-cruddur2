@@ -21,7 +21,7 @@ Using Lucid Charts I created this 2 diagrams, a conceptual diagram and Architect
 
 [The Architectural Diagram](https://lucid.app/lucidchart/9ca79677-eaca-42f1-b7b4-8de21fa475cc/edit?viewport_loc=84%2C356%2C2220%2C970%2C0_0&invitationId=inv_94040091-7a0c-4fea-b245-3df287b2ad6b)
 
-![The Architectural Diagram](assets/Architectural- diagram.png)
+![The Architectural Diagram](assets/Arch-diagram.png)
 
 ### Open a support ticket and request a service limit
 Requested and got an approval of a service increase request of vCPUs
