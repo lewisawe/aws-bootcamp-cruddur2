@@ -17,3 +17,4 @@ tasks:
 vscode:
   extensions:
     - 42Crunch.vscode-openapi AKIA5VTH46GQRT6YXJR5
+    - cweijan.vscode-postgresql-client2
