@@ -37,7 +37,7 @@ import os
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
-from rollbar.contrib.flask import report_exception
+
 
 # Configuring Logger to Use CloudWatch
 LOGGER = logging.getLogger(__name__)
@@ -83,12 +83,6 @@ cors = CORS(
   allow_headers="content-type,if-modified-since",
   methods="OPTIONS,GET,HEAD,POST"
 )
-# rollbar email setting
-rollbar.people_describe(request.headers.get('X-USER-EMAIL'), {
-    'id': '254254',
-    'username': 'lewisawe',
-    'email': 'lewisbet9@gmail.com'
-})
 
 
 @app.after_request
@@ -213,7 +207,6 @@ def data_activities_reply(activity_uuid):
     return model['data'], 200
   return
 
-app.register_error_handler(Exception, report_exception)
 
 if __name__ == "__main__":
   app.run(debug=True)
