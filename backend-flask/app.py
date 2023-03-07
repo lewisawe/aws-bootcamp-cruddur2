@@ -107,7 +107,7 @@ old_factory = logging.getLogRecordFactory()
 
 def record_factory(*args, **kwargs):
     record = old_factory(*args, **kwargs)
-    record.request = SimpleRequestWithPerson({'id': 'id_as_a_string', 'username': 'lewisawe', 'email': 'lewisbet9@gmail.com'})
+    record.request = SimpleRequestWithPerson({'id': '254254', 'username': 'lewisawe', 'email': 'lewisbet9@gmail.com'})
     return record
 
 logging.basicConfig(format="%(request)s - %(message)s")
