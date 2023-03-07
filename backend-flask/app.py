@@ -37,6 +37,7 @@ import os
 import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
+from rollbar.contrib.flask import report_exception
 
 # Configuring Logger to Use CloudWatch
 LOGGER = logging.getLogger(__name__)
@@ -83,37 +84,12 @@ cors = CORS(
   methods="OPTIONS,GET,HEAD,POST"
 )
 # rollbar email setting
-# Pyrollbar works by inspecting the `request` for a `rollbar_person`,
-# `user` or `user_id` field (in that order). The first one it finds
-# it uses as the person data assuming the object contains at least
-# the `id` field.
+rollbar.people_describe(request.headers.get('X-USER-EMAIL'), {
+    'id': '254254',
+    'username': 'lewisawe',
+    'email': 'lewisbet9@gmail.com'
+})
 
-# For a request with only a `user_id` field, the person is sent as
-# follows: `{ id: request.user_id }`.
-
-# Many/Most frameworks handle this all automatically. 
-# If you are not using a web framework, keep in mind that 
-# the `rollbar_person` param needs to be a property of the request object,
-# not a dictionary element. See example below:
-
-
-class SimpleRequestWithPerson(object):
-    def __init__(self, person_dict):
-        self.rollbar_person = person_dict
-    def __str__(self):
-        return str(self.rollbar_person)
-
-old_factory = logging.getLogRecordFactory()
-
-def record_factory(*args, **kwargs):
-    record = old_factory(*args, **kwargs)
-    record.request = SimpleRequestWithPerson({'id': '254254', 'username': 'lewisawe', 'email': 'lewisbet9@gmail.com'})
-    return record
-
-logging.basicConfig(format="%(request)s - %(message)s")
-logging.setLogRecordFactory(record_factory)
-log = logging.getLogger()
-log.warning('this is a warning')
 
 @app.after_request
 def after_request(response):
@@ -237,5 +213,8 @@ def data_activities_reply(activity_uuid):
     return model['data'], 200
   return
 
+app.register_error_handler(Exception, report_exception)
+
 if __name__ == "__main__":
   app.run(debug=True)
+
