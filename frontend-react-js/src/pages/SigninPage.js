@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Auth } from 'aws-amplify';
 
 // [TODO] Authenication
-import Cookies from 'js-cookie'
+import { Amplify } from 'aws-amplify';
 
 export default function SigninPage() {
 
@@ -32,6 +32,7 @@ export default function SigninPage() {
     }
     return false
   }
+  
   
   let errors;
   if (cognitoErrors){
