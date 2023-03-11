@@ -13,13 +13,14 @@ export default function ProfileInfo(props) {
   }
 
   const signOut = async () => {
-    try {
-        await Auth.signOut({ global: true });
-        window.location.href = "/"
-    } catch (error) {
-        console.log('error signing out: ', error);
+    const signOut = async () => {
+      try {
+          await Auth.signOut({ global: true });
+          window.location.href = "/"
+      } catch (error) {
+          console.log('error signing out: ', error);
+      }
     }
-  }
 
   const classes = () => {
     let classes = ["profile-info-wrapper"];
@@ -28,6 +29,7 @@ export default function ProfileInfo(props) {
     }
     return classes.join(' ');
   }
+}
 
   return (
     <div className={classes()}>
