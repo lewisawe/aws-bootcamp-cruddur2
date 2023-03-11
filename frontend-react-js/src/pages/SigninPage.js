@@ -2,10 +2,9 @@ import './SigninPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
-import { Auth } from 'aws-amplify';
 
 // [TODO] Authenication
-import { Amplify } from 'aws-amplify';
+import { Auth } from 'aws-amplify';
 
 export default function SigninPage() {
 
@@ -13,35 +12,22 @@ export default function SigninPage() {
   const [password, setPassword] = React.useState('');
   const [errors, setErrors] = React.useState('');
 
-
   const onsubmit = async (event) => {
-    
-    event.preventDefault();
     setErrors('')
-    try {
-      Auth.signIn(email, password)
-        .then(user => {
-          localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
-          window.location.href = "/"
-        })
-        .catch(err => { console.log('Error!', err) });
-    } catch (error) {
+    event.preventDefault();
+    Auth.signIn(email, password)
+    .then(user => {
+      localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+      window.location.href = "/"
+    })
+    .catch(error => { 
       if (error.code == 'UserNotConfirmedException') {
         window.location.href = "/confirm"
       }
       setErrors(error.message)
-    }
+    });
     return false
   }
-  
-  
-  let errors;
-  if (cognitoErrors){
-    errors = <div className='errors'>{cognitoErrors}</div>;
-  }
-  
-  // just before submit component
-  {errors}
 
   const email_onchange = (event) => {
     setEmail(event.target.value);
