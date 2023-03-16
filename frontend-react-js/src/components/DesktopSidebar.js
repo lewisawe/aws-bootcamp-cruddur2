@@ -25,7 +25,7 @@ export default function DesktopSidebar(props) {
   } else {
     join = <JoinSection />
   }
-  
+
   return (
     <section>
       <Search />
@@ -39,4 +39,3 @@ export default function DesktopSidebar(props) {
       </footer>
     </section>
   );
-}
